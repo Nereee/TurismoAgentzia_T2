@@ -32,6 +32,10 @@ body {
   flex-direction: column;
 }
 
+.login-form h1 {
+  color: #2a4d36;
+}
+
 .login-form label {
   margin-bottom: 5px;
   color: #2a4d36;
@@ -70,6 +74,10 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-div h1 {
+  color: #2a4d36;
 }
 
 .menu-div button {
@@ -111,6 +119,10 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 120px;
+}
+
+.bidaiakerre-div h1 {
+  color: #2a4d36;
 }
 
 .bidaiakerre-form {
@@ -211,9 +223,10 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin: 10px;
   width: 40%;
 }
+
 
 .zerbitzuakerre-form,
 #additional-form {
