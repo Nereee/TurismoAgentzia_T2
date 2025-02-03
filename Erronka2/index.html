@@ -15,22 +15,45 @@
         <input type="text" id="erabiltzailea" name="erabiltzailea" required />
         <label for="pasahitza">Pasahitza:</label>
         <input type="password" id="pasahitza" name="pasahitza" required />
+        <br>
         <button type="submit">Sartu</button>
+        <p id="error-message" style="color: red; display: none">
+          <br />
+          Erabiltzailea edo pasahitza okerra da.
+        </p>
       </form>
     </div>
-
     <script>
-      document.getElementById("login-form")
-        document.addEventListener("submit", function (event) {
-          event.preventDefault();
-          const username = document.getElementById("erabiltzailea").value;
-          const password = document.getElementById("pasahitza").value;
+      const users = [
+        ["admin", "admin"],
+        ["admin2", "admin2"],
+        ["admin3", "admin3"],
+      ];
 
-          console.log("Erabiltzailea:", username);
-          console.log("Pasahitza:", password);
+      const form = document.getElementById("login-form");
+      const errorMessage = document.getElementById("error-message");
 
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("erabiltzailea").value;
+        const password = document.getElementById("pasahitza").value;
+
+        let isValid = false;
+
+        for (let i = 0; i < users.length; i++) {
+          if (users[i][0] === username && users[i][1] === password) {
+            isValid = true;
+            break;
+          }
+        }
+
+        if (isValid) {
           window.location.href = "html/menu.html";
-        });
+        } else {
+          errorMessage.style.display = "block";
+        }
+      });
     </script>
   </body>
 </html>

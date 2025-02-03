@@ -89,7 +89,7 @@ body {
 
 .menu-div .logout {
   padding: 10px;
-  background-color: #A31D1D;
+  background-color: #a31d1d;
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -99,59 +99,10 @@ body {
 }
 
 .menu-div .logout:hover {
-  background-color: #6D2323;
+  background-color: #6d2323;
 }
 /*********************************************************************************************************************************************/
 /*****************************************************BIDAIAK ERREGISTARTU CSS*************************************************************/
-/*********************************************************************************************************************************************/
-
-.bidaiakerre-div {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 120px;
-}
-
-.bidaiakerre-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.bidaiakerre-form h1 {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.bidaiakerre-form label {
-  margin-bottom: 5px;
-  color: #2a4d36;
-}
-
-.bidaiakerre-form input {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #6a7f4d;
-  border-radius: 4px;
-}
-
-.bidaiakerre-form button {
-  padding: 10px;
-  background-color: #50c878;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.bidaiakerre-form button:hover {
-  background-color: #8dbe74;
-}
-
-/*********************************************************************************************************************************************/
-/*****************************************************RESPONSIVE CSS**************************************************************************/
 /*********************************************************************************************************************************************/
 
 .bidaiakerre-div {
@@ -250,46 +201,54 @@ body {
 
 .zerbitzuakerre-form .radio-group {
   display: flex;
-  flex-direction: row; 
-  gap: 10px; 
+  flex-direction: column;
+  gap: 10px;
 }
 
-/*********************************************************************************************************************************************/
-/*****************************************************HEGALDIA CSS****************************************************************************/
-/*********************************************************************************************************************************************/
-
-.hegaldia-div {
+.zerbitzuakerre-div,
+#extra-form {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 120px;
+  margin-top: 20px;
+  width: 40%;
 }
 
-.hegaldia-form {
+.zerbitzuakerre-form,
+#additional-form {
   display: flex;
   flex-direction: column;
 }
 
-.hegaldia-form h1 {
-  display: flex;
-  flex-direction: column;
+.zerbitzuakerre-form h1,
+#extra-form h3 {
   text-align: center;
-}
-
-.hegaldia-form label {
-  margin-bottom: 5px;
   color: #2a4d36;
 }
 
-.hegaldia-form input {
+.zerbitzuakerre-form label,
+#extra-form label {
+  margin-bottom: 5px;
+  color: #2a4d36;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.zerbitzuakerre-form input,
+#extra-form input,
+.zerbitzuakerre-form select,
+#extra-form select {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #6a7f4d;
   border-radius: 4px;
+  width: 100%;
 }
 
-.hegaldia-form button {
+.zerbitzuakerre-form button,
+#extra-form button {
   padding: 10px;
   background-color: #50c878;
   color: #ffffff;
@@ -299,8 +258,16 @@ body {
   font-size: 20px;
 }
 
-.hegaldia-form button:hover {
+.zerbitzuakerre-form button:hover,
+#extra-form button:hover {
   background-color: #8dbe74;
+}
+
+.zerbitzuakerre-form .radio-group,
+#extra-form .radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 /*********************************************************************************************************************************************/
@@ -308,18 +275,9 @@ body {
 /*********************************************************************************************************************************************/
 
 @media screen and (max-width: 800px) {
-  footer .talde-1 {
-    grid-template-columns: 1fr;
-    padding: 15px 0;
-    grid-gap: 20px;
-  }
-
-  footer .talde-1 .kutxa {
-    text-align: center;
-  }
-
   body {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
