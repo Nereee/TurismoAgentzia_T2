@@ -1,36 +1,5 @@
 <?php
 require 'connexion.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $izena = $_POST['izena'];
-    $bidaiamota = $_POST['bidaiamota'];
-    $hasieradata = $_POST['hasieradata'];
-    $amaieradata = $_POST['amaieradata'];
-    $herrialdea = $_POST['herrialdea'];
-    $deskribapena = $_POST['deskribapena'];
-    $kanpokozerbitzuak = $_POST['kanpokozerbitzuak'];
-
-
-    if ($hasieradata >= $amaieradata) {
-        echo "<script>alert('Errorea: Amaiera data hasiera datatik handia izan behar da.');</script>";
-    } else {
-        $date1 = new DateTime($hasieradata);
-        $date2 = new DateTime($amaieradata);
-        $interval = $date1->diff($date2);
-        $egunak = $interval->days;
-
-        $sql = "INSERT INTO bidaiak (izena, bidaiamota, hasieradata, amaieradata, egunak, herrialdea, deskribapena, kanpokozerbitzuak)
-                VALUES ('$izena', '$bidaiamota', '$hasieradata', '$amaieradata', '$egunak', '$herrialdea', '$deskribapena', '$kanpokozerbitzuak')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Datuak ondo gorde dira.');</script>";
-            echo "<script>window.location.href = 'menu_nagusia.php';</script>"; 
-        } else {
-            echo "<script>alert('Errorea datuak gordetzean: " . $conn->error . "');</script>";
-        }
-    }
-    $conn->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select id="bidaiamota" name="bidaiamota">
                 <option value="">--Hemen--</option>
                 <?php
-                // Datu baseko aukera (bidaiak)
+                //DATU BASETIK
                 $sql = "SELECT bidai_kod, deskribapena FROM bidai_mota";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
@@ -79,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select id="herrialdea" name="herrialdea">
                 <option value="">--Hemen--</option>
                 <?php
-                // Datu baseko herrialdeak
+                //DATU BASETIK
                 $sql = "SELECT herri_kod, herrialdea FROM herrialdeak";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
@@ -98,7 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <br />
             <button type="submit">GORDE</button>
         </form>
+        <br>
+        
     </div>
+    <div id="taula" class="taula">
+
+        </div>
 
     <script>
         document.getElementById('amaieradata').addEventListener('change', function() {
@@ -111,6 +85,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 const days = timeDifference / (1000 * 3600 * 24);
                 document.getElementById('egunak').value = days >= 0 ? days : 0;
             }
+        });
+
+        document.getElementById('bidaiakerre-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const izena = document.getElementById('izena').value;
+            const bidaiamota = document.getElementById('bidaiamota').options[document.getElementById('bidaiamota').selectedIndex].text;
+            const hasieraData = document.getElementById('hasieradata').value;
+            const amaieraData = document.getElementById('amaieradata').value;
+            const egunak = document.getElementById('egunak').value;
+            const herrialdea = document.getElementById('herrialdea').options[document.getElementById('herrialdea').selectedIndex].text;
+            const deskribapena = document.getElementById('deskribapena').value;
+            const kanpokozerbitzuak = document.getElementById('kanpokozerbitzuak').value;
+
+            let tableHtml = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Izena</th>
+                            <th>Bidaia mota</th>
+                            <th>Hasiera data</th>
+                            <th>Amaiera data</th>
+                            <th>Egunak</th>
+                            <th>Herrialdea</th>
+                            <th>Deskribapena</th>
+                            <th>Kanpoan geratzen diren zerbitzuak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${izena}</td>
+                            <td>${bidaiamota}</td>
+                            <td>${hasieraData}</td>
+                            <td>${amaieraData}</td>
+                            <td>${egunak}</td>
+                            <td>${herrialdea}</td>
+                            <td>${deskribapena}</td>
+                            <td>${kanpokozerbitzuak}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+
+            document.getElementById('taula').innerHTML = tableHtml;
         });
     </script>
 </body>

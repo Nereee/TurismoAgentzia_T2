@@ -1,22 +1,5 @@
 <?php
 require 'connexion.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $jatorria = $_POST['hegaldia-jatorria'];
-    $helmuga = $_POST['hegaldia-helmuga'];
-    $kodea = $_POST['hegaldia-kodea'];
-    $prezioa = $_POST['hegaldia-prezioa'];
-
-    $sql = "INSERT INTO hegaldiak (jatorria, helmuga, kodea, prezioa) VALUES ('$jatorria', '$helmuga', '$kodea', '$prezioa')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Zerbitzua gorde da!";
-    } else {
-        echo "Errorea: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="aukeratubidaia">Aukeratu bidaia:</label>
             <select id="bidaiamota" name="bidaiamota">
                 <option value="">--Hemen--</option>
+                <?php
+                $sql = "SELECT bidai_kod, deskribapena FROM bidai_mota";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['bidai_kod'] . "'>" . $row['deskribapena'] . "</option>";
+                    }
+                }
+                ?>
             </select>
             <br>
             <p>
@@ -235,6 +227,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
 
+    <div id="joan-etorria-form" style="display: none;">
+        <h3>Joan/Etorri</h3>
+        <label for="hegaldia-kodeabuelta">Bueltako hegaldi kodea:</label>
+        <input type="text" id="hegaldia-kodeabuelta" name="hegaldia-kodeabuelta" required>
+    </div>
+
+    <!-- Formulario de Ostatua -->
     <div id="ostatua-form" style="display: none;">
         <label for="ostatua-izena">Hotelaren izena:</label>
         <input type="text" id="ostatua-izena" name="ostatua-izena" required>
@@ -265,7 +264,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?>
         </select>
-
         <br>
         <button type="submit">GORDE ZERBITZUA</button>
     </div>
@@ -288,35 +286,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        document.querySelectorAll('input[name="zerbitzu"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const formularioa = document.getElementById("extra-form");
-                const aukeraGehigarriak = document.getElementById("additional-form");
-                aukeraGehigarriak.innerHTML = "";
-                formularioa.style.display = "block";
+        document.addEventListener("DOMContentLoaded", function() {
+            const zerbitzuRadios = document.querySelectorAll('input[name="zerbitzu"]');
+            const hegaldiRadios = document.querySelectorAll('input[name="hegaldi-mota"]');
 
-                if (this.value === "hegaldia") {
-                    aukeraGehigarriak.innerHTML = document.getElementById("hegaldia-form").innerHTML;
-                    document.querySelectorAll('input[name="hegaldi-mota"]').forEach(hegaldiRadio => {
-                        hegaldiRadio.addEventListener('change', function() {
-                            const hegaldiFormulario = document.getElementById("hegaldi-extra");
-                            hegaldiFormulario.innerHTML = "";
-                            if (this.value === "joan") {
-                                hegaldiFormulario.innerHTML = document.getElementById("joan-form").innerHTML;
-                            } else if (this.value === "joan-etorria") {
-                                hegaldiFormulario.innerHTML = document.getElementById("joan-etorria-form").innerHTML;
-                            }
-                        });
-                    });
-                } else if (this.value === "ostatua") {
-                    aukeraGehigarriak.innerHTML = document.getElementById("ostatua-form").innerHTML;
-                } else if (this.value === "bestebatzuk") {
-                    aukeraGehigarriak.innerHTML = document.getElementById("bestebatzuk-form").innerHTML;
-                }
+            const hegaldiaForm = document.getElementById("hegaldia-form");
+            const joanForm = document.getElementById("joan-form");
+            const joanEtorriForm = document.getElementById("joan-etorria-form");
+            const ostatuaForm = document.getElementById("ostatua-form");
+            const besteBatzukForm = document.getElementById("bestebatzuk-form");
+
+            function hideAllForms() {
+                hegaldiaForm.style.display = "none";
+                joanForm.style.display = "none";
+                joanEtorriForm.style.display = "none";
+                ostatuaForm.style.display = "none";
+                besteBatzukForm.style.display = "none";
+            }
+
+            function hideHegaldiForms() {
+                joanForm.style.display = "none";
+                joanEtorriForm.style.display = "none";
+            }
+
+            zerbitzuRadios.forEach(radio => {
+                radio.addEventListener("change", function() {
+                    hideAllForms();
+                    if (this.value === "hegaldia") {
+                        hegaldiaForm.style.display = "block";
+                    } else if (this.value === "ostatua") {
+                        ostatuaForm.style.display = "block";
+                    } else if (this.value === "bestebatzuk") {
+                        besteBatzukForm.style.display = "block";
+                    }
+                });
+            });
+
+            hegaldiRadios.forEach(radio => {
+                radio.addEventListener("change", function() {
+                    hideHegaldiForms();
+                    if (this.value === "joan") {
+                        joanForm.style.display = "block";
+                    } else if (this.value === "joan-etorria") {
+                        joanEtorriForm.style.display = "block";
+                    }
+                });
             });
         });
     </script>
-
 </body>
 
 </html>
