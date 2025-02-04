@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="eu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-div">
+      <form id="login-form" class="login-form">
+        <h1>VIAJERO NÓMADA</h1>
+        <br />
+        <label for="erabiltzailea">Erabiltzailea:</label>
+        <input type="text" id="erabiltzailea" name="erabiltzailea" required />
+        <label for="pasahitza">Pasahitza:</label>
+        <input type="password" id="pasahitza" name="pasahitza" required />
+        <br />
+        <button type="submit">SARTU</button>
+        <p id="error-message" style="color: red; display: none">
+          <br />
+          Erabiltzailea edo pasahitza okerra da.
+        </p>
+      </form>
+    </div>
+    <script>
+      const users = [
+        ["admin", "admin"],
+        ["admin2", "admin2"],
+        ["admin3", "admin3"],
+      ];
+
+      const form = document.getElementById("login-form");
+      const errorMessage = document.getElementById("error-message");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("erabiltzailea").value;
+        const password = document.getElementById("pasahitza").value;
+
+        let isValid = false;
+
+        for (let i = 0; i < users.length; i++) {
+          if (users[i][0] === username && users[i][1] === password) {
+            isValid = true;
+            break;
+          }
+        }
+
+        if (isValid) {
+          window.location.href = "html/menu.html";
+        } else {
+          errorMessage.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

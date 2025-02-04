@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "popins", "sans-serif";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #c7e6a1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/*********************************************************************************************************************************************/
+/*****************************************************LOGIN CSS*******************************************************************************/
+/*********************************************************************************************************************************************/
+
+.login-div {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form h1 {
+  color: #2a4d36;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  color: #2a4d36;
+}
+
+.login-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.login-form button:hover {
+  background-color: #8dbe74;
+}
+
+/*********************************************************************************************************************************************/
+/*****************************************************MENU CSS********************************************************************************/
+/*********************************************************************************************************************************************/
+
+.menu-div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-div h1 {
+  color: #2a4d36;
+}
+
+.menu-div button {
+  padding: 10px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+}
+
+.menu-div button:hover {
+  background-color: #8dbe74;
+}
+
+.menu-div .logout {
+  padding: 10px;
+  background-color: #a31d1d;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+}
+
+.menu-div .logout:hover {
+  background-color: #6d2323;
+}
+/*********************************************************************************************************************************************/
+/*****************************************************BIDAIAK ERREGISTARTU CSS*************************************************************/
+/*********************************************************************************************************************************************/
+
+.bidaiakerre-div {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 120px;
+}
+
+.bidaiakerre-div h1 {
+  color: #2a4d36;
+}
+
+.bidaiakerre-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.bidaiakerre-form h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.bidaiakerre-form label {
+  margin-bottom: 5px;
+  color: #2a4d36;
+}
+
+.bidaiakerre-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+}
+
+.bidaiakerre-form button {
+  padding: 10px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.bidaiakerre-form button:hover {
+  background-color: #8dbe74;
+}
+
+/*********************************************************************************************************************************************/
+/*****************************************************ZERBITZUAK ERREGISTARTU CSS*************************************************************/
+/*********************************************************************************************************************************************/
+
+.zerbitzuakerre-div {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.zerbitzuakerre-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.zerbitzuakerre-form h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.zerbitzuakerre-form label {
+  margin-bottom: 5px;
+  color: #2a4d36;
+}
+
+.zerbitzuakerre-form input {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+}
+
+.zerbitzuakerre-form button {
+  padding: 10px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.zerbitzuakerre-form button:hover {
+  background-color: #8dbe74;
+}
+
+.zerbitzuakerre-form .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zerbitzuakerre-div,
+#extra-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 40%;
+}
+
+
+.zerbitzuakerre-form,
+#additional-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.zerbitzuakerre-form h1,
+#extra-form h3 {
+  text-align: center;
+  color: #2a4d36;
+}
+
+.zerbitzuakerre-form label,
+#extra-form label {
+  margin-bottom: 5px;
+  color: #2a4d36;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.zerbitzuakerre-form input,
+#extra-form input,
+.zerbitzuakerre-form select,
+#extra-form select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.zerbitzuakerre-form button,
+#extra-form button {
+  padding: 10px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.zerbitzuakerre-form button:hover,
+#extra-form button:hover {
+  background-color: #8dbe74;
+}
+
+.zerbitzuakerre-form .radio-group,
+#extra-form .radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/*********************************************************************************************************************************************/
+/*****************************************************RESPONSIVE CSS**************************************************************************/
+/*********************************************************************************************************************************************/
+
+@media screen and (max-width: 800px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
