@@ -60,19 +60,19 @@ require 'connexion.php';
             </select>
             <br />
             <label for="deskribapena">Deskribapena:</label>
-            <textarea name="deskribapena" id="deskribapena" cols="80" rows="7"></textarea>
+            <textarea name="deskribapena" id="deskribapena" cols="80" rows="10"></textarea>
             <br />
             <label for="kanpokozerbitzuak">Kanpoan geratzen diren zerbitzuak:</label>
-            <textarea name="kanpokozerbitzuak" id="kanpokozerbitzuak" cols="80" rows="7"></textarea>
+            <textarea name="kanpokozerbitzuak" id="kanpokozerbitzuak" cols="80" rows="10"></textarea>
             <br />
             <button type="submit">GORDE</button>
         </form>
         <br>
-
+        
     </div>
     <div id="taula" class="taula">
 
-    </div>
+        </div>
 
     <script>
         document.getElementById('amaieradata').addEventListener('change', function() {
