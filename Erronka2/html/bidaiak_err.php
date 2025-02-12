@@ -13,66 +13,80 @@ require 'connexion.php';
 </head>
 
 <body>
-    <div class="bidaiakerre-div">
-        <form id="bidaiakerre-form" class="bidaiakerre-form" method="POST">
-            <h1>VIAJERO NÓMADA</h1>
-            <br />
-            <label for="izena">Izena:</label>
-            <input type="text" id="izena" name="izena" required />
-            <br />
-            <label for="bidaiamota">Bidaia mota:</label>
-            <select id="bidaiamota" name="bidaiamota">
-                <option value="">--Hemen--</option>
-                <?php
-                //DATU BASETIK
-                $sql = "SELECT bidai_kod, deskribapena FROM bidai_mota";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['bidai_kod'] . "'>" . $row['deskribapena'] . "</option>";
+    <header>
+        <div class="headerlogout-div">
+            <img class="logo" src="../img/logo.jpg" alt="Logo" width="170" height="110">
+            <h1>VIAJERO NÓMADA<h1>
+                    <button class="bueltatu" onclick="window.location.href='menu.html'">
+                        ⬅
+                    </button>
+                    <button class="logout" onclick="window.location.href='../index.html'">
+                        LOG OUT
+                    </button>
+        </div>
+    </header>
+    <main>
+        <div class="bidaiakerre-div">
+            <form id="bidaiakerre-form" class="bidaiakerre-form" method="POST">
+                <h1>BIDAIAK ERREGISTRATU</h1>
+                <br />
+                <label for="izena">Izena:</label>
+                <input type="text" id="izena" name="izena" required />
+                <br />
+                <label for="bidaiamota">Bidaia mota:</label>
+                <select id="bidaiamota" name="bidaiamota">
+                    <option value="">--Hemen--</option>
+                    <?php
+                    //DATU BASETIK
+                    $sql = "SELECT bidai_kod, deskribapena FROM bidai_mota";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['bidai_kod'] . "'>" . $row['deskribapena'] . "</option>";
+                        }
                     }
-                }
-                ?>
-            </select>
-            <br />
-            <label for="hasieradata">Hasiera data:</label>
-            <input type="date" id="hasieradata" name="hasieradata" required />
-            <br />
-            <label for="amaieradata">Amaiera data:</label>
-            <input type="date" id="amaieradata" name="amaieradata" required />
-            <br />
-            <label for="egunak">Egunak:</label>
-            <input type="text" id="egunak" name="egunak" readonly />
-            <br />
-            <label for="herrialdea">Herrialdea:</label>
-            <select id="herrialdea" name="herrialdea">
-                <option value="">--Hemen--</option>
-                <?php
-                //DATU BASETIK
-                $sql = "SELECT herri_kod, herrialdea FROM herrialdeak";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['herri_kod'] . "'>" . $row['herrialdea'] . "</option>";
+                    ?>
+                </select>
+                <br />
+                <label for="hasieradata">Hasiera data:</label>
+                <input type="date" id="hasieradata" name="hasieradata" required />
+                <br />
+                <label for="amaieradata">Amaiera data:</label>
+                <input type="date" id="amaieradata" name="amaieradata" required />
+                <br />
+                <label for="egunak">Egunak:</label>
+                <input type="text" id="egunak" name="egunak" readonly />
+                <br />
+                <label for="herrialdea">Herrialdea:</label>
+                <select id="herrialdea" name="herrialdea">
+                    <option value="">--Hemen--</option>
+                    <?php
+                    //DATU BASETIK
+                    $sql = "SELECT herri_kod, herrialdea FROM herrialdeak";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['herri_kod'] . "'>" . $row['herrialdea'] . "</option>";
+                        }
                     }
-                }
-                ?>
-            </select>
-            <br />
-            <label for="deskribapena">Deskribapena:</label>
-            <textarea name="deskribapena" id="deskribapena" cols="80" rows="10"></textarea>
-            <br />
-            <label for="kanpokozerbitzuak">Kanpoan geratzen diren zerbitzuak:</label>
-            <textarea name="kanpokozerbitzuak" id="kanpokozerbitzuak" cols="80" rows="10"></textarea>
-            <br />
-            <button type="submit">GORDE</button>
-        </form>
-        <br>
-        
-    </div>
-    <div id="taula" class="taula">
+                    ?>
+                </select>
+                <br />
+                <label for="deskribapena">Deskribapena:</label>
+                <textarea name="deskribapena" id="deskribapena" cols="80" rows="7"></textarea>
+                <br />
+                <label for="kanpokozerbitzuak">Kanpoan geratzen diren zerbitzuak:</label>
+                <textarea name="kanpokozerbitzuak" id="kanpokozerbitzuak" cols="80" rows="7"></textarea>
+                <br /><br>
+                <button type="submit">GORDE</button>
+            </form>
+
 
         </div>
+        <div id="taula" class="taula">
+
+        </div>
+    </main>
 
     <script>
         document.getElementById('amaieradata').addEventListener('change', function() {
