@@ -125,7 +125,6 @@ main {
 /*********************************************************************************************************************************************/
 
 .login-div {
-  background-image: url();
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -176,15 +175,14 @@ main {
 /*********************************************************************************************************************************************/
 
 .menu-div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 200px;
   border: 3px solid #50c878;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .menu-div h1 {
@@ -228,10 +226,10 @@ main {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
   border: 3px solid #50c878;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
 }
 
 .bidaiakerre-div h1 {
@@ -244,8 +242,6 @@ main {
 }
 
 .bidaiakerre-form h1 {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -277,12 +273,12 @@ main {
 }
 
 .taula {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 8px;
   justify-content: center;
   align-items: center;
-  border-collapse: collapse;
-  margin-top: 20px; 
-  margin-bottom: 20px;
-  border-radius: 8px;
+  width: 100%;
 }
 
 .taula th,
@@ -293,6 +289,8 @@ main {
   color: #2a4d36;
   background-color: #ffffff;
   border-radius: 8px;
+  word-wrap: break-word;
+  max-width: 200px;
 }
 
 .taula th {
@@ -314,11 +312,9 @@ main {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  width: 40%;
+  width: 100%;
   border: 3px solid #50c878;
-  margin-top: 20px;
 }
 
 .zerbitzuakerre-form,
@@ -359,17 +355,25 @@ main {
 
 .zerbitzuakerre-form input,
 #extra-form input,
+#hegaldia-form input,
+#joan-form input,
+#joan-etorria-form input,
+#ostatua-form input,
+#bestebatzuk-form input {
+  margin-bottom: 15px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .zerbitzuakerre-form select,
 #extra-form select,
-#hegaldia-form input,
 #hegaldia-form select,
-#joan-form input,
 #joan-form select,
-#joan-etorria-form input,
 #joan-etorria-form select,
-#ostatua-form input,
 #ostatua-form select,
-#bestebatzuk-form input,
 #bestebatzuk-form select {
   margin-bottom: 15px;
   padding: 10px;
@@ -377,6 +381,8 @@ main {
   border-radius: 4px;
   width: 100%;
 }
+
+
 
 .zerbitzuakerre-form button,
 #extra-form button,
@@ -391,7 +397,7 @@ main {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .zerbitzuakerre-form button:hover,
@@ -413,7 +419,6 @@ main {
 #bestebatzuk-form .radio-group {
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 
 /*********************************************************************************************************************************************/
@@ -426,4 +431,16 @@ main {
     flex-direction: column;
     flex-wrap: wrap;
   }
+
+  header {
+    font-size: 12px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
 }

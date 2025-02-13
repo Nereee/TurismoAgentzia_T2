@@ -25,6 +25,7 @@ require 'connexion.php';
                     </button>
         </div>
     </header>
+    <main>
     <div class="zerbitzuakerre-div">
         <form id="zerbitzuakerre-form" class="zerbitzuakerre-form">
             <h1>ZERBITZUAK ERREGISTRATU</h1>
@@ -136,7 +137,7 @@ require 'connexion.php';
     </div>
 
     <div id="joan-etorria-form" style="display: none;">
-        <h3>HEGALDIA (JOANA)</h3>
+        <h3>HEGALDIA (JOANA)</h3><br>
         <label for="hegaldia-jatorria">Jatorrizko Aireportua:</label>
         <select id="hegaldia-jatorria" name="hegaldia-jatorria">
             <option value="">--Hemen--</option>
@@ -194,7 +195,7 @@ require 'connexion.php';
         <input type="text" id="hegaldia-iraupena" name="hegaldia-iraupena" required>
 
         <br><br>
-        <h3>HEGALDIA (JOAN/ETORRIA)</h3>
+        <h3>HEGALDIA (JOAN/ETORRIA)</h3><br>
         <label for=hegaldia-itzuleradata>Itzulera Data:</label>
         <input type="date" id="hegaldia-itzulera" name="hegaldia-itzulera" required>
 
@@ -269,18 +270,18 @@ require 'connexion.php';
         <input type="date" id="bestebatzuk-data" name="bestebatzuk-data" required>
 
         <label for="bestebatzuk-deskribapena">Deskribapena:</label>
-        <textarea name="deskribapena" id="bestebatzuk-deskribapena" cols="107" rows="7"></textarea>
-        <br>
+        <textarea name="deskribapena" id="bestebatzuk-deskribapena" cols="80" rows="5"></textarea>
+        <br><br>
         <label for="bestebatzuk-prezioa">Prezioa(€):</label>
         <input type="text" id="bestebatzuk-prezioa" name="bestebatzuk-prezioa" required>
 
         <br><br>
         <button type="submit">GORDE ZERBITZUA</button>
         <br>
-        
-    </div>
-    
 
+    </div>
+
+    </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const zerbitzuRadios = document.querySelectorAll('input[name="zerbitzu"]');
