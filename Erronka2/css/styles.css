@@ -5,6 +5,7 @@
 }
 
 body {
+  background-image: url(../img/fondo3.jpg);
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
@@ -12,8 +13,111 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   margin: 0;
+  flex-grow: 1;
+}
+
+/*********************************************************************************************************************************************/
+/*****************************************************GOIBURUAREN CSS*************************************************************************/
+/*********************************************************************************************************************************************/
+
+header {
+  display: flex;
+  align-items: center;
+  border: 3px solid #50c878;
+  border-radius: 8px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  width: 60%;
+  max-width: 100%;
+  background-color: white;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-div h1 {
+  color: #2a4d36;
+  margin: 0 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.header-div img {
+  border-radius: 8px;
+  margin: 0 20px;
+  height: auto;
+  width: 170px;
+  max-height: 110px;
+}
+
+.headerlogout-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.headerlogout-div h1 {
+  color: #2a4d36;
+  margin: 0 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.headerlogout-div img {
+  border-radius: 8px;
+  margin: 0 20px;
+  height: auto;
+  width: 170px;
+  max-height: 110px;
+}
+
+.headerlogout-div .logout {
+  padding: 10px 20px;
+  background-color: #a31d1d;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  width: 80%;
+}
+
+.headerlogout-div .logout:hover {
+  background-color: #6d2323;
+}
+
+.headerlogout-div .bueltatu {
+  padding: 10px 20px;
+  background-color: #50c878;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+}
+
+.headerlogout-div .bueltatu:hover {
+  background-color: #8dbe74;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*********************************************************************************************************************************************/
@@ -24,7 +128,11 @@ body {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid #50c878;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-form {
@@ -67,13 +175,14 @@ body {
 /*********************************************************************************************************************************************/
 
 .menu-div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid #50c878;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .menu-div h1 {
@@ -117,8 +226,10 @@ body {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 120px;
+  border: 3px solid #50c878;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
 }
 
 .bidaiakerre-div h1 {
@@ -131,8 +242,6 @@ body {
 }
 
 .bidaiakerre-form h1 {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -141,7 +250,8 @@ body {
   color: #2a4d36;
 }
 
-.bidaiakerre-form input {
+.bidaiakerre-form input,
+.bidaiakerre-form select {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #6a7f4d;
@@ -162,86 +272,80 @@ body {
   background-color: #8dbe74;
 }
 
+.taula {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.taula th,
+.taula td {
+  border: 1px solid #6a7f4d;
+  padding: 12px;
+  text-align: left;
+  color: #2a4d36;
+  background-color: #ffffff;
+  border-radius: 8px;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+.taula th {
+  background-color: #50c878;
+  color: #ffffff;
+}
+
 /*********************************************************************************************************************************************/
 /*****************************************************ZERBITZUAK ERREGISTARTU CSS*************************************************************/
 /*********************************************************************************************************************************************/
 
-.zerbitzuakerre-div {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.zerbitzuakerre-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.zerbitzuakerre-form h1 {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.zerbitzuakerre-form label {
-  margin-bottom: 5px;
-  color: #2a4d36;
-}
-
-.zerbitzuakerre-form input {
-  display: flex;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #6a7f4d;
-  border-radius: 4px;
-}
-
-.zerbitzuakerre-form button {
-  padding: 10px;
-  background-color: #50c878;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.zerbitzuakerre-form button:hover {
-  background-color: #8dbe74;
-}
-
-.zerbitzuakerre-form .radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .zerbitzuakerre-div,
-#extra-form {
+#extra-form,
+#hegaldia-form,
+#joan-form,
+#joan-etorria-form,
+#ostatua-form,
+#bestebatzuk-form {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  width: 40%;
+  width: 100%;
+  border: 3px solid #50c878;
 }
-
 
 .zerbitzuakerre-form,
-#additional-form {
+#additional-form,
+#hegaldia-form .zerbitzuakerre-form,
+#joan-form .zerbitzuakerre-form,
+#joan-etorria-form .zerbitzuakerre-form,
+#ostatua-form .zerbitzuakerre-form,
+#bestebatzuk-form .zerbitzuakerre-form {
   display: flex;
   flex-direction: column;
 }
 
 .zerbitzuakerre-form h1,
-#extra-form h3 {
+#extra-form h3,
+#hegaldia-form h3,
+#joan-form h3,
+#joan-etorria-form h3,
+#ostatua-form h3,
+#bestebatzuk-form h3 {
   text-align: center;
   color: #2a4d36;
 }
 
 .zerbitzuakerre-form label,
-#extra-form label {
+#extra-form label,
+#hegaldia-form label,
+#joan-form label,
+#joan-etorria-form label,
+#ostatua-form label,
+#bestebatzuk-form label {
   margin-bottom: 5px;
   color: #2a4d36;
   display: flex;
@@ -251,8 +355,26 @@ body {
 
 .zerbitzuakerre-form input,
 #extra-form input,
+#hegaldia-form input,
+#joan-form input,
+#joan-etorria-form input,
+#ostatua-form input,
+#bestebatzuk-form input {
+  margin-bottom: 15px;
+  border: 1px solid #6a7f4d;
+  border-radius: 4px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .zerbitzuakerre-form select,
-#extra-form select {
+#extra-form select,
+#hegaldia-form select,
+#joan-form select,
+#joan-etorria-form select,
+#ostatua-form select,
+#bestebatzuk-form select {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #6a7f4d;
@@ -260,27 +382,43 @@ body {
   width: 100%;
 }
 
+
+
 .zerbitzuakerre-form button,
-#extra-form button {
+#extra-form button,
+#hegaldia-form button,
+#joan-form button,
+#joan-etorria-form button,
+#ostatua-form button,
+#bestebatzuk-form button {
   padding: 10px;
   background-color: #50c878;
   color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .zerbitzuakerre-form button:hover,
-#extra-form button:hover {
+#extra-form button:hover,
+#hegaldia-form button:hover,
+#joan-form button:hover,
+#joan-etorria-form button:hover,
+#ostatua-form button:hover,
+#bestebatzuk-form button:hover {
   background-color: #8dbe74;
 }
 
 .zerbitzuakerre-form .radio-group,
-#extra-form .radio-group {
+#extra-form .radio-group,
+#hegaldia-form .radio-group,
+#joan-form .radio-group,
+#joan-etorria-form .radio-group,
+#ostatua-form .radio-group,
+#bestebatzuk-form .radio-group {
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 
 /*********************************************************************************************************************************************/
@@ -293,4 +431,16 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
   }
+
+  header {
+    font-size: 12px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
 }
